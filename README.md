@@ -40,3 +40,13 @@ Resulta em:
 ```
 
 Falta tratar erros de persistência e de conversão do payload para objeto Java.
+
+Gostaria de adicionar tratamento de erros de associação entre entidades (erros de integridade referencial).
+
+Gostaria também de adicionar tratamento de erros de tentativa de remover uma linha de uma tabela que possua associação com uma linha de outra tabela.
+
+Resumidamente, a ideia é sempre ser capaz de mostrar erros de forma amigável.
+
+O mapeamento de erros para mensagens localizadas também estar por fazer.
+
+Agradeço as contribuições que vocês possam em fornecer!
