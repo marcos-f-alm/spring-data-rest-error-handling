@@ -1,9 +1,6 @@
 package br.dev.mfalm.springdataresterrorhandling.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
@@ -16,11 +13,13 @@ import java.util.List;
 @Entity
 @Setter
 @Getter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class Developer {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @EqualsAndHashCode.Include
     private Long id;
 
     @Column(length=20, nullable = false)

@@ -1,9 +1,6 @@
 package br.dev.mfalm.springdataresterrorhandling.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,10 +11,12 @@ import javax.validation.constraints.Size;
 @Entity
 @Setter
 @Getter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class Skill {
-    @Id
+    @Id @EqualsAndHashCode.Include
     @Column(name = "uuid", nullable = false)
     private String uuid;
 

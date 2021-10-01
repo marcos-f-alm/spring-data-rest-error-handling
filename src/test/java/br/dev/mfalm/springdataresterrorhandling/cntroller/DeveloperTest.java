@@ -35,7 +35,7 @@ class DeveloperTest {
     private ObjectMapper objectMapper;
 
     @Test
-    void postTest() throws Exception {
+    void ShouldAddANewDeveloperWithJavaSkill() throws Exception {
         MvcResult result =  mockMvc.perform(MockMvcRequestBuilders
                 .get("/api/skills/4e1a5cab-dadf-463b-8c39-040ea4815383")
                 .accept(MediaType.APPLICATION_JSON))
@@ -61,7 +61,9 @@ class DeveloperTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.skills[0].uuid").exists())
                 .andReturn();
 
-        log.info(result.getResponse().getContentAsString());
+        developer = objectMapper.readValue(result.getResponse().getContentAsString(), Developer.class);
+
+        log.info(developer.toString());
     }
 
 }
