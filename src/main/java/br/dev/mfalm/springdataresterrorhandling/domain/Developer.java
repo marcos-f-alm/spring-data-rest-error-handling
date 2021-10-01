@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -39,6 +40,7 @@ public class Developer {
     @JoinTable(name = "developer_skills",
             joinColumns = @JoinColumn(name = "developer_id"),
             inverseJoinColumns = @JoinColumn(name = "skills_uuid"))
+    @RestResource(exported = false)
     private List<Skill> skills;
 
 }
