@@ -66,4 +66,19 @@ class DeveloperTest {
         log.info(developer.toString());
     }
 
+    @Test
+    void ShouldFindDevelopersBySkill() throws Exception {
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders
+                        .get("/api/developers/search/findBySkill?shortName=PYTHON")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.developers[0].id").exists())
+                .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.developers[0].skills[0].uuid").exists())
+                .andReturn();
+
+        log.info(result.getResponse().getContentAsString());
+    }
+
 }
