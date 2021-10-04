@@ -69,7 +69,7 @@ class DeveloperTest {
     @Test
     void ShouldFindDevelopersBySkill() throws Exception {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders
-                        .get("/api/developers/search/findBySkill?shortName=PYTHON")
+                        .get("/api/developers/search/findBySkill?name=PYTHON&size=10&sort=nickname,asc")
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
